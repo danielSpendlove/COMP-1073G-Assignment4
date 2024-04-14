@@ -1,11 +1,13 @@
 const studentP = document.querySelector(".studentId");
 const book = document.querySelector(".book");
+const button = document.querySelector(".button");
 
 //dynamically create a p element and append it to the studentId section in the body of index.html
-const studentId = document.createElement("p");
-studentId.textContent = 1228048;
-studentP.appendChild(studentId);
-
+function displayStudentId(){
+    const studentId = document.createElement("p");
+    studentId.textContent = 1228048;
+    studentP.appendChild(studentId);
+}
 //full url to search for meditations by Marcus Aurelius, specifically the one published by Modern Library because the cover looks nice.
 url = "https://openlibrary.org/search.json?q=meditations&author=marcus+aurelius&publisher=modern+library&fields=title,author_name,publisher,isbn"
 
@@ -36,6 +38,8 @@ function display(json){
     book.appendChild(displayIsbn)
 
 }
+//event listener for student Id button
+button.addEventListener("click",displayStudentId);
 //docs for api
 //https://openlibrary.org/dev/docs/api/search
 //https://openlibrary.org/dev/docs/api/covers
